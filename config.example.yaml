@@ -1,0 +1,56 @@
+paths:
+  data_root: data
+  cohort_file: data/cohort.csv
+  model_dir: models/Pillar0-AbdomenCT
+  output_dir: outputs
+
+data:
+  id_column: case_id
+  ct_path_column: ct_path
+  l3_path_column: l3_mask_path
+  tumor_path_column: tumor_mask_path
+  label_columns: [recurrence, complication]
+  l3_labels: [1, 2, 3]
+  geometry_tolerance: 0.0001
+
+# Clinical column names are fixed in graft_pillar.clinical and documented in
+# examples/cohort_template.csv. They are not inferred from unrelated columns.
+clinical:
+  enabled: true
+
+preprocess:
+  target_spacing_xyz: [1.25, 1.25, 1.25]
+  target_shape_dhw: [384, 384, 384]
+  pad_hu: -1024
+  windows:
+    - lung
+    - mediastinum
+    - abdomen
+    - liver
+    - bone
+    - brain
+    - subdural
+    - stroke
+    - temporal_bone
+    - soft_tissue
+    - minmax
+
+extraction:
+  device: cuda:0
+  autocast_dtype: bfloat16
+  overwrite: false
+
+training:
+  output_subdir: training_clinical
+  seed: 2026
+  n_splits: 5
+  n_repeats: 10
+  validation_fraction: 0.20
+  head_type: linear
+  hidden_dim: 64
+  dropout: 0.30
+  learning_rate: 0.001
+  weight_decay: 0.01
+  max_epochs: 500
+  patience: 50
+  bootstrap_samples: 2000

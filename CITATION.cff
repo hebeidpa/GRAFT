@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated GRAFT manuscript and this repository."
+title: "GRAFT: Multimodal Prediction of Postoperative Complications in Gastric Cancer"
+type: software
+authors:
+  - family-names: Ding
+    given-names: Ping'an
+  - family-names: Zhao
+    given-names: Qun
+version: 2.0.0
+date-released: 2026-09-18
+repository-code: "https://github.com/hebeidpa/GRAFT"
+license: MIT

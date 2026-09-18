@@ -1,0 +1,40 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+build/
+dist/
+.venv/
+.idea/
+.vscode/
+
+# Real patient data and generated artifacts
+data/
+outputs/
+*.csv
+*.xlsx
+*.xls
+*.nii
+*.nii.gz
+*.npy
+*.npz
+*.log
+*.zip
+
+# Only the explicitly synthetic public example is allowed.
+!examples/synthetic/cohort.csv
+!examples/synthetic/images/*.nii.gz
+
+# Third-party base model files are not redistributed.
+models/Pillar0-AbdomenCT/
+*.safetensors
+
+# Checkpoints are excluded except for the reviewed released fusion head.
+*.pt
+*.pth
+*.ckpt
+!weights/final_fusion_head.pt
+
+config.yaml
+config.local.yaml
