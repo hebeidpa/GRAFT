@@ -110,11 +110,8 @@ The outer five-fold split is stratified by the joint recurrence/complication lab
 - the selected checkpoint is evaluated once on the untouched outer test fold.
 
 
-## Public-data policy
 
-Real patient CSV files, NIfTI volumes, extracted features, outputs, logs, local configurations, base-model files, and checkpoints are excluded by `.gitignore`. Only explicitly synthetic examples may be committed. Review `git status` and staged content before every public release.
-
-## Acknowledgements / 致谢
+## Acknowledgements
 
 GRAFT builds on the [Pillar-0 project](https://yalalab.github.io/) and the [YalaLab/Pillar0-AbdomenCT checkpoint](https://huggingface.co/YalaLab/Pillar0-AbdomenCT). The checkpoint is distributed separately under its own license and access terms.
 
