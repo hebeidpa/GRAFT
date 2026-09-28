@@ -109,11 +109,6 @@ The outer five-fold split is stratified by the joint recurrence/complication lab
 - early stopping and epoch selection use a stratified inner validation partition;
 - the selected checkpoint is evaluated once on the untouched outer test fold.
 
-Completed folds are reused when all of `best.pt`, `best_val.npz`, and `history.csv` exist. Output includes fold checkpoints, split-role files, inner learning histories, outer-fold predictions, aggregate out-of-fold predictions, and `cv_metrics.json`.
-
-## Interpretation of results
-
-Cross-validation from a single retrospective cohort is internal validation. It does not establish transportability, calibration at another site, clinical utility, fairness, or prospective benefit. A publication-quality evaluation should add confidence intervals, calibration plots, threshold-based metrics, decision-curve analysis, subgroup assessment, and independent temporal or external validation.
 
 ## Public-data policy
 
@@ -129,7 +124,9 @@ Please cite Pillar-0 when using this pipeline:
 @article{pillar0,
   title   = {Pillar-0: A New Frontier for Radiology Foundation Models},
   author  = {Agrawal, Kumar Krishna and Liu, Longchao and Lian, Long and Nercessian, Michael and Harguindeguy, Natalia and Wu, Yufu and Mikhael, Peter and Lin, Gigin and Sequist, Lecia V. and Fintelmann, Florian and Darrell, Trevor and Bai, Yutong and Chung, Maggie and Yala, Adam},
-  journal = {arXiv preprint arXiv:2511.17803},
+  journal = {arXiv preprint arXiv:2511.17803
+        
+        },
   year    = {2025}
 }
 ```
