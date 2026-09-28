@@ -6,7 +6,7 @@ GRAFT is a research pipeline for dual-task prediction of gastric cancer recurren
 
 ## Current model
 
-This repository contains one current architecture:
+This repository contains architecture:
 
 1. CT is processed by `Pillar0-AbdomenCT` with LoRA adapters in the final Atlas stage.
 2. The Pillar global feature is projected to a 128-dimensional CT embedding.
