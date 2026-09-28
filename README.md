@@ -2,7 +2,6 @@
 
 GRAFT is a research pipeline for dual-task prediction of gastric cancer recurrence and postoperative complications using abdominal CT, a primary-tumour mask, an L3 body-composition mask, and preoperative clinical variables.
 
-> Research use only. GRAFT is not a medical device and must not be used as a standalone diagnostic or treatment system.
 
 ## Current model
 
