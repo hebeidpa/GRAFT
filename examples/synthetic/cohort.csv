@@ -1,0 +1,3 @@
+﻿case_id,ct_path,l3_mask_path,tumor_mask_path,recurrence,complication,Age (years),Sex,ECOG,Charlson index,BMI,PNI (cont.),NLR (cont.),PLR (cont.),CONUT score,SII,cT,cN,cTNM stage,Borrmann type,Tumor location,CEA,CA19-9,CA72-4
+SYNTH_001,examples/synthetic/images/SYNTH_001_ct.nii.gz,examples/synthetic/images/SYNTH_001_l3.nii.gz,examples/synthetic/images/SYNTH_001_tumor.nii.gz,0,1,55,1,0,0,22.5,48.0,2.1,120.0,1,500.0,1,1,II,1,1,2.5,18.0,3.0
+SYNTH_002,examples/synthetic/images/SYNTH_002_ct.nii.gz,examples/synthetic/images/SYNTH_002_l3.nii.gz,examples/synthetic/images/SYNTH_002_tumor.nii.gz,1,0,65,2,1,1,23.5,47.0,3.1,130.0,2,600.0,2,2,III,3,3,3.5,19.0,4.0

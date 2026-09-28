@@ -1,0 +1,17 @@
+paths:
+  data_root: .
+  cohort_file: examples/synthetic/cohort.csv
+  model_dir: models/Pillar0-AbdomenCT
+  output_dir: outputs/synthetic-validation
+
+data:
+  id_column: case_id
+  ct_path_column: ct_path
+  l3_path_column: l3_mask_path
+  tumor_path_column: tumor_mask_path
+  label_columns: [recurrence, complication]
+  l3_labels: [1, 2, 3]
+  geometry_tolerance: 0.0001
+
+clinical:
+  enabled: true
