@@ -1,0 +1,56 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+build/
+dist/
+.venv/
+.idea/
+.vscode/
+
+# Real patient data and generated artifacts
+data/
+outputs/
+*.csv
+*.xlsx
+*.xls
+*.nii
+*.nii.gz
+*.npy
+*.npz
+*.log
+*.zip
+
+# Only the explicitly synthetic public example is allowed.
+!examples/synthetic/cohort.csv
+!examples/synthetic/images/*.nii.gz
+
+# Third-party base model files are not redistributed.
+models/Pillar0-AbdomenCT/
+*.safetensors
+
+# Local checkpoints remain excluded. Only reviewed release artifacts are allowed.
+*.pt
+*.pth
+*.ckpt
+weights/
+!weights/
+!weights/graft_v4_final_model.pt
+!weights/graft_v4_final_model.clinical_preprocessor.joblib
+!weights/training_history.csv
+!weights/training_summary.json
+!weights/SHA256SUMS
+!weights/README.md
+!weights/*.csv
+
+# Local training state
+fold_*/
+cv_splits.csv
+oof_predictions*.csv
+cv_metrics.json
+clinical_columns_selected.json
+
+config.yaml
+config.local.yaml
+!examples/synthetic/config.yaml

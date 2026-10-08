@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated GRAFT manuscript and this repository."
+title: "GRAFT: Mask-Guided Pillar-0 and Clinical Fusion for Gastric Cancer Outcomes"
+type: software
+authors:
+  - name: "GRAFT contributors"
+version: 3.0.0
+repository-code: "https://github.com/hebeidpa/GRAFT"
+license: MIT
