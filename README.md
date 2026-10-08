@@ -24,6 +24,7 @@ Masks are never passed into Pillar-0 as image channels. The previous 67-dimensio
 - `src/graft_pillar/training_support.py`: LoRA, clinical preprocessing, splitting, loss, and metric utilities.
 - `src/graft_pillar/`: cohort validation, preprocessing, and offline Hugging Face cache repair.
 - `examples/synthetic/`: two synthetic cases with no patient-derived content.
+- `examples/deidentified_four_cases/`: four reviewed, deidentified cases spanning the four binary prediction combinations from the released model.
 
 The Pillar-0 checkpoint is not redistributed. The repository includes the reviewed GRAFT LoRA adapters, fusion model, clinical preprocessor, training history, and checksums in `weights/`. See `VERSION_NOTES.md` for the revised focal-loss objective and final-model fitting rule.
 
@@ -72,6 +73,12 @@ The included synthetic cohort can be checked immediately:
 
 ```bash
 graft-validate --config examples/synthetic/config.yaml
+```
+
+The deidentified four-case demonstration cohort can be checked in the same way:
+
+```bash
+graft-validate --config examples/deidentified_four_cases/config.yaml
 ```
 
 ## Smoke test
@@ -163,7 +170,7 @@ The script draws tumour-level CT, tumour contours, L3 regions, recurrence and co
 
 ## Public-data policy
 
-Real patient CSV files, NIfTI volumes, extracted features, outputs, logs, local configurations, and base-model files are excluded by `.gitignore`. Only explicitly reviewed release weights and synthetic examples may be committed. Review `git status` and staged content before every public release.
+Real patient CSV files, NIfTI volumes, extracted features, outputs, logs, local configurations, and base-model files are excluded by `.gitignore`. The only patient-derived files permitted in this repository are the four explicitly reviewed, deidentified demonstration cases under `examples/deidentified_four_cases/`; their source identifiers, source paths, and NIfTI metadata are removed. These examples demonstrate the input and output format and must not be used to estimate model performance. Review `git status` and staged content before every public release.
 
 ## Acknowledgements / 致谢
 

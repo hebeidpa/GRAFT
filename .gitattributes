@@ -3,3 +3,6 @@
 *.py text eol=lf
 *.yml text eol=lf
 *.yaml text eol=lf
+*.csv text eol=lf
+SHA256SUMS text eol=lf
+*.nii.gz binary

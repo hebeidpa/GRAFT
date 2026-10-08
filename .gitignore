@@ -22,9 +22,17 @@ outputs/
 *.log
 *.zip
 
-# Only the explicitly synthetic public example is allowed.
+# Only the explicitly reviewed public examples are allowed.
 !examples/synthetic/cohort.csv
 !examples/synthetic/images/*.nii.gz
+!examples/deidentified_four_cases/
+!examples/deidentified_four_cases/README.md
+!examples/deidentified_four_cases/config.yaml
+!examples/deidentified_four_cases/cohort.csv
+!examples/deidentified_four_cases/predictions.csv
+!examples/deidentified_four_cases/SHA256SUMS
+!examples/deidentified_four_cases/images/
+!examples/deidentified_four_cases/images/*.nii.gz
 
 # Third-party base model files are not redistributed.
 models/Pillar0-AbdomenCT/
@@ -54,3 +62,4 @@ clinical_columns_selected.json
 config.yaml
 config.local.yaml
 !examples/synthetic/config.yaml
+!examples/deidentified_four_cases/config.yaml
