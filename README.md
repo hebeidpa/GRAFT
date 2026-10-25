@@ -8,7 +8,7 @@ preoperative clinical variables.
 This public repository is an **inference and evaluation release**. It includes
 the trained GRAFT parameters, fitted clinical preprocessor, model architecture,
 input validation, a direct inference command, and ten deidentified example
-cases. Model-development and training code is not included.
+cases.
 
 > Research use only. GRAFT is not a medical device and must not be used as a
 > standalone diagnostic or treatment system.
