@@ -7,7 +7,7 @@ preoperative clinical variables.
 
 This public repository is an **inference and evaluation release**. It includes
 the trained GRAFT parameters, fitted clinical preprocessor, model architecture,
-input validation, a direct inference command, and four deidentified example
+input validation, a direct inference command, and ten deidentified example
 cases. Model-development and training code is not included.
 
 > Research use only. GRAFT is not a medical device and must not be used as a
@@ -154,19 +154,25 @@ graft-infer ... --threshold 0.40 --bootstrap-samples 2000
 
 ## Sample validation cohort
 
-`examples/sample_validation_cohort/` contains four reviewed, deidentified cases,
+`examples/sample_validation_cohort/` contains ten reviewed, deidentified cases,
 each with CT, tumour mask, L3 mask, fixed clinical variables, and reference
-labels. The cases span the four combinations of negative/positive recurrence
-and complication predictions at threshold 0.5.
+labels. The cohort includes both correct predictions and deliberately retained
+misclassified examples at threshold 0.5.
 
 Run the cohort with the command above. The released model produced:
 
-| Public ID | Recurrence probability | Recurrence prediction | Complication probability | Complication prediction |
-|---|---:|---:|---:|---:|
-| `PUBLIC_001` | 0.000001 | Negative | 0.010014 | Negative |
-| `PUBLIC_002` | 0.000024 | Negative | 0.980281 | Positive |
-| `PUBLIC_003` | 0.999999 | Positive | 0.004905 | Negative |
-| `PUBLIC_004` | 1.000000 | Positive | 0.969785 | Positive |
+| Public ID | Recurrence truth | Probability | Prediction | Status | Complication truth | Probability | Prediction | Status |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| `PUBLIC_001` | Negative | 0.000001 | Negative | Correct | Negative | 0.010014 | Negative | Correct |
+| `PUBLIC_002` | Negative | 0.000024 | Negative | Correct | Positive | 0.980281 | Positive | Correct |
+| `PUBLIC_003` | Positive | 0.999999 | Positive | Correct | Negative | 0.004905 | Negative | Correct |
+| `PUBLIC_004` | Positive | 1.000000 | Positive | Correct | Positive | 0.969785 | Positive | Correct |
+| `PUBLIC_005` | Positive | 0.999994 | Positive | Correct | Positive | 0.228156 | Negative | Misclassified |
+| `PUBLIC_006` | Negative | 0.000001 | Negative | Correct | Positive | 0.398875 | Negative | Misclassified |
+| `PUBLIC_007` | Negative | 0.000002 | Negative | Correct | Negative | 0.570810 | Positive | Misclassified |
+| `PUBLIC_008` | Negative | 0.000001 | Negative | Correct | Positive | 0.466846 | Negative | Misclassified |
+| `PUBLIC_009` | Negative | 0.000002 | Negative | Correct | Positive | 0.560493 | Positive | Correct |
+| `PUBLIC_010` | Positive | 0.999999 | Positive | Correct | Positive | 0.572245 | Positive | Correct |
 
 Compare a new run with the published reference output:
 
@@ -180,17 +186,17 @@ Expected verification output:
 ```json
 {
   "status": "PASS",
-  "cases": 4,
+  "cases": 10,
   "maximum_absolute_difference": 0.0,
   "absolute_tolerance": 1e-05,
   "binary_predictions_match": true
 }
 ```
 
-This is a software and model-weight reproducibility cohort. The cases were
-selected to display all four output combinations, so this small cohort is not
-an unbiased random or independent sample. Its AUC or accuracy must not be used
-as a model-performance claim.
+This is a software and model-weight reproducibility cohort. Cases were selected
+to display different output combinations and include known error modes. It is
+not an unbiased random or independent sample. Its AUC, accuracy, or error rate
+must not be used as a model-performance claim.
 
 Verify their integrity before use:
 
@@ -216,7 +222,7 @@ evidence.
 ## Privacy
 
 Do not commit patient data, identifiers, local paths, prediction files, logs, or
-institution-only configuration. The four public examples were deidentified and
+institution-only configuration. The ten public examples were deidentified and
 re-serialized with neutral NIfTI metadata. Always complete local governance and
 privacy review before sharing medical images.
 

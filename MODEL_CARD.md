@@ -35,7 +35,7 @@ performance claim is made for this release.
 
 ## Privacy
 
-The repository contains four reviewed, deidentified demonstration cases and
+The repository contains ten reviewed, deidentified demonstration cases and
 reviewed model artifacts. Source identifiers, source paths, logs, and
 institutional patient-level outputs are excluded from version control. The
 released checkpoint contains model parameters, architecture settings, and
