@@ -23,13 +23,13 @@ outputs/
 *.zip
 
 # Only the explicitly reviewed public examples are allowed.
-!examples/deidentified_four_cases/
-!examples/deidentified_four_cases/README.md
-!examples/deidentified_four_cases/cohort.csv
-!examples/deidentified_four_cases/predictions.csv
-!examples/deidentified_four_cases/SHA256SUMS
-!examples/deidentified_four_cases/images/
-!examples/deidentified_four_cases/images/*.nii.gz
+!examples/sample_validation_cohort/
+!examples/sample_validation_cohort/README.md
+!examples/sample_validation_cohort/cohort.csv
+!examples/sample_validation_cohort/expected_predictions.csv
+!examples/sample_validation_cohort/SHA256SUMS
+!examples/sample_validation_cohort/images/
+!examples/sample_validation_cohort/images/*.nii.gz
 
 # Third-party base model files are not redistributed.
 models/Pillar0-AbdomenCT/

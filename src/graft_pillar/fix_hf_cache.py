@@ -35,7 +35,7 @@ def main() -> None:
     parser.add_argument("--cache-dir", default=None)
     args = parser.parse_args()
     target = repair(args.model_dir, args.cache_dir)
-    print(f"已复制模型源码到: {target}")
+    print(f"Copied model source files to: {target}")
 
 
 if __name__ == "__main__":

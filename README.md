@@ -17,7 +17,7 @@ cases. Model-development and training code is not included.
 
 ```text
 GRAFT/
-├── examples/deidentified_four_cases/  # runnable CT/mask/clinical examples
+├── examples/sample_validation_cohort/ # runnable CT/mask/clinical cohort
 ├── models/                            # place Pillar0-AbdomenCT here
 ├── scripts/run_inference.sh           # one-command wrapper
 ├── src/graft_pillar/                  # frozen inference implementation
@@ -115,10 +115,10 @@ From the repository root:
 
 ```bash
 graft-infer \
-  --cohort-csv examples/deidentified_four_cases/cohort.csv \
+  --cohort-csv examples/sample_validation_cohort/cohort.csv \
   --checkpoint weights/graft_v4_final_model.pt \
   --model-dir models/Pillar0-AbdomenCT \
-  --output-dir outputs/demo \
+  --output-dir outputs/sample_validation \
   --device cuda:0
 ```
 
@@ -131,7 +131,7 @@ MODEL_DIR=/path/to/Pillar0-AbdomenCT bash scripts/run_inference.sh
 The command writes:
 
 ```text
-outputs/demo/
+outputs/sample_validation/
 ├── predictions.csv
 └── metrics.json
 ```
@@ -152,16 +152,50 @@ To change the classification threshold or bootstrap count:
 graft-infer ... --threshold 0.40 --bootstrap-samples 2000
 ```
 
-## Deidentified demonstration cohort
+## Sample validation cohort
 
-`examples/deidentified_four_cases/` contains four reviewed examples spanning
-the four combinations of negative/positive recurrence and complication
-predictions at threshold 0.5. 
+`examples/sample_validation_cohort/` contains four reviewed, deidentified cases,
+each with CT, tumour mask, L3 mask, fixed clinical variables, and reference
+labels. The cases span the four combinations of negative/positive recurrence
+and complication predictions at threshold 0.5.
+
+Run the cohort with the command above. The released model produced:
+
+| Public ID | Recurrence probability | Recurrence prediction | Complication probability | Complication prediction |
+|---|---:|---:|---:|---:|
+| `PUBLIC_001` | 0.000001 | Negative | 0.010014 | Negative |
+| `PUBLIC_002` | 0.000024 | Negative | 0.980281 | Positive |
+| `PUBLIC_003` | 0.999999 | Positive | 0.004905 | Negative |
+| `PUBLIC_004` | 1.000000 | Positive | 0.969785 | Positive |
+
+Compare a new run with the published reference output:
+
+```bash
+python scripts/verify_sample_validation.py \
+  --actual outputs/sample_validation/predictions.csv
+```
+
+Expected verification output:
+
+```json
+{
+  "status": "PASS",
+  "cases": 4,
+  "maximum_absolute_difference": 0.0,
+  "absolute_tolerance": 1e-05,
+  "binary_predictions_match": true
+}
+```
+
+This is a software and model-weight reproducibility cohort. The cases were
+selected to display all four output combinations, so this small cohort is not
+an unbiased random or independent sample. Its AUC or accuracy must not be used
+as a model-performance claim.
 
 Verify their integrity before use:
 
 ```bash
-cd examples/deidentified_four_cases
+cd examples/sample_validation_cohort
 sha256sum -c SHA256SUMS
 cd ../..
 ```
@@ -176,7 +210,8 @@ discrimination, calibration, uncertainty, and clinically prespecified
 thresholds.
 
 The released weight has no public independent-validation performance claim.
-Training loss and the four demonstration cases are not validation evidence.
+Training loss and the sample validation cohort are not independent-validation
+evidence.
 
 ## Privacy
 
