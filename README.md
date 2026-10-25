@@ -156,9 +156,7 @@ graft-infer ... --threshold 0.40 --bootstrap-samples 2000
 
 `examples/deidentified_four_cases/` contains four reviewed examples spanning
 the four combinations of negative/positive recurrence and complication
-predictions at threshold 0.5. These cases demonstrate the file format and
-software execution only. They are not a random validation set and must not be
-used to estimate model performance.
+predictions at threshold 0.5. 
 
 Verify their integrity before use:
 
@@ -187,7 +185,7 @@ institution-only configuration. The four public examples were deidentified and
 re-serialized with neutral NIfTI metadata. Always complete local governance and
 privacy review before sharing medical images.
 
-## Acknowledgements / 致谢
+## Acknowledgements
 
 GRAFT uses image representations from
 [`Pillar-0`](https://arxiv.org/abs/2511.17803), developed by the Yala Lab and
