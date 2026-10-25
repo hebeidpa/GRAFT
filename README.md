@@ -194,9 +194,7 @@ Expected verification output:
 ```
 
 This is a software and model-weight reproducibility cohort. Cases were selected
-to display different output combinations and include known error modes. It is
-not an unbiased random or independent sample. Its AUC, accuracy, or error rate
-must not be used as a model-performance claim.
+to display different output combinations and include known error modes. 
 
 Verify their integrity before use:
 
