@@ -156,8 +156,7 @@ graft-infer ... --threshold 0.40 --bootstrap-samples 2000
 
 `examples/sample_validation_cohort/` contains ten reviewed, deidentified cases,
 each with CT, tumour mask, L3 mask, fixed clinical variables, and reference
-labels. The cohort includes both correct predictions and deliberately retained
-misclassified examples at threshold 0.5.
+labels.
 
 Run the cohort with the command above. The released model produced:
 
