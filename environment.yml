@@ -1,0 +1,13 @@
+name: graft
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pytorch=2.8.0
+  - torchvision=0.23.0
+  - pytorch-cuda=12.6
+  - pip:
+      - -r requirements.txt
